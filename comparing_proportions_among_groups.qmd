@@ -339,3 +339,17 @@ http://www.r-tutor.com/elementary-statistics/goodness-fit/chi-squared-test-indep
 
 to determine if smoking is independent of exercise. You’ll need to input
 data manually. Carry out post-hoc tests if needed.
+```{r}
+library(MASS)
+```
+
+```{r}
+table(table(survey$Smoke, survey$Exer))
+```
+```{r}
+table
+```
+```{r}
+chisq.test(table(table(survey$Smoke, survey$Exer)))
+```
+*chi test showed that p-value is greater than 0.5 meaning that smoking and exercising not dependent*
