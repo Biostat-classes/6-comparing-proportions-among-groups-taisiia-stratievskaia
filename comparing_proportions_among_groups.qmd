@@ -266,6 +266,14 @@ chisq.test(c(5065,7779), p=c(0.492, 0.508))
 
 Still using the heart attack data, is survival independent of gender?
 
+```{r}
+table(heart_attacks$SEX, heart_attacks$DIED)
+```
+```{r}
+chisq.test(table(heart_attacks$SEX, heart_attacks$DIED))
+```
+*p-value is smaller than 0.5, reject null hypothesis, survival is not dependent on gender*
+
 #### 3
 
 For people that have a heart attack before they turn 30, is survival
