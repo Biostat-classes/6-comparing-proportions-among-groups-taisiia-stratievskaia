@@ -253,15 +253,56 @@ http://statland.org/Software_Help/DataDesk/datafile.htm
 We want to again test if heart attacks occur equally across genders.
 
 -   What if we know that males actually make up 50.8% of the population?
+```{r}
+table(heart_attacks$SEX)
+```
+
+```{r}
+chisq.test(c(5065,7779), p=c(0.492, 0.508))
+```
+*test showed that p is less than 0.5, we reject null hypothesis. It means that heart attacks does not happen in this proportion*
 
 #### 2
 
 Still using the heart attack data, is survival independent of gender?
 
+```{r}
+table(heart_attacks$SEX, heart_attacks$DIED)
+```
+```{r}
+chisq.test(table(heart_attacks$SEX, heart_attacks$DIED))
+```
+*p-value is smaller than 0.5, reject null hypothesis, survival is not dependent on gender*
+
 #### 3
 
 For people that have a heart attack before they turn 30, is survival
 independent of gender?
+```{r}
+table(heart_attacks$AGE)
+```
+```{r}
+heart_attacks$AGE<-as.numeric(as.character(heart_attacks$AGE))
+```
+
+```{r}
+colnames(heart_attacks)
+```
+```{r}
+lessthan30<-subset(heart_attacks, AGE<30)
+```
+```{r}
+View(lessthan30)
+```
+
+```{r}
+smalltable<-table(lessthan30$SEX, lessthan30$DIED)
+smalltable
+```
+```{r}
+chisq.test(smalltable)
+```
+*chi squared test gave p-value greater than 0.5 so we fail to reject hypothesis, so survival does not depend on sex or gender*
 
 ### Dolphins
 
@@ -286,6 +327,8 @@ Is travelling independent of time of day? You’ll need to consider
 traveling vs not traveling due to different number of groups observed in
 each period. Carry out post-hoc tests if needed.
 
+*cannot access data* 
+
 ### Smoking
 
 #### 5
@@ -296,3 +339,17 @@ http://www.r-tutor.com/elementary-statistics/goodness-fit/chi-squared-test-indep
 
 to determine if smoking is independent of exercise. You’ll need to input
 data manually. Carry out post-hoc tests if needed.
+```{r}
+library(MASS)
+```
+
+```{r}
+table(table(survey$Smoke, survey$Exer))
+```
+```{r}
+table
+```
+```{r}
+chisq.test(table(table(survey$Smoke, survey$Exer)))
+```
+*chi test showed that p-value is greater than 0.5 meaning that smoking and exercising not dependent*
