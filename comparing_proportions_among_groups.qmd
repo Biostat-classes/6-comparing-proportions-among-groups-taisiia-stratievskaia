@@ -253,6 +253,14 @@ http://statland.org/Software_Help/DataDesk/datafile.htm
 We want to again test if heart attacks occur equally across genders.
 
 -   What if we know that males actually make up 50.8% of the population?
+```{r}
+table(heart_attacks$SEX)
+```
+
+```{r}
+chisq.test(c(5065,7779), p=c(0.492, 0.508))
+```
+*test showed that p is less than 0.5, we reject null hypothesis. It means that heart attacks does not happen in this proportion*
 
 #### 2
 
