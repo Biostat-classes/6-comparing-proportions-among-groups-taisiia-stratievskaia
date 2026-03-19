@@ -327,6 +327,8 @@ Is travelling independent of time of day? You’ll need to consider
 traveling vs not traveling due to different number of groups observed in
 each period. Carry out post-hoc tests if needed.
 
+*cannot access data* 
+
 ### Smoking
 
 #### 5
