@@ -278,6 +278,31 @@ chisq.test(table(heart_attacks$SEX, heart_attacks$DIED))
 
 For people that have a heart attack before they turn 30, is survival
 independent of gender?
+```{r}
+table(heart_attacks$AGE)
+```
+```{r}
+heart_attacks$AGE<-as.numeric(as.character(heart_attacks$AGE))
+```
+
+```{r}
+colnames(heart_attacks)
+```
+```{r}
+lessthan30<-subset(heart_attacks, AGE<30)
+```
+```{r}
+View(lessthan30)
+```
+
+```{r}
+smalltable<-table(lessthan30$SEX, lessthan30$DIED)
+smalltable
+```
+```{r}
+chisq.test(smalltable)
+```
+*chi squared test gave p-value greater than 0.5 so we fail to reject hypothesis, so survival does not depend on sex or gender*
 
 ### Dolphins
 
