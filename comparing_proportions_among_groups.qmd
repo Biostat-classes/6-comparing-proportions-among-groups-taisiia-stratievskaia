@@ -309,19 +309,14 @@ chisq.test(smalltable)
 #### 4
 
 Data on dolphin behavior was collected off the coast of Iceland. Data is
-\@
+shown below:
 
-http://www.statsci.org/data/general/dolpacti.txt
-
-Since this is a .txt file, not a .csv, you’ll need to use something like
-
-```{r}
-dolphin <- read.table("http://www.statsci.org/data/general/dolpacti.txt", sep="", header = T, stringsAsFactors = T)
-```
-
-More info on data \@
-
-http://www.statsci.org/data/general/dolpacti.html
+| Time of Day | Traveling | Feeding | Socializing |
+|-------------|-----------|---------|-------------|
+| Morning     | 6         | 28      | 38          |
+| Noon        | 6         | 4       | 5           |
+| Afternoon   | 14        | 0       | 9           |
+| Night       | 13        | 56      | 10          |
 
 Is travelling independent of time of day? You’ll need to consider
 traveling vs not traveling due to different number of groups observed in
